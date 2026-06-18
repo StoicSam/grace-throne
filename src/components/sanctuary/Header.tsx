@@ -1,5 +1,5 @@
-import { Link } from "@tanstack/react-router";
 import { Crown } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 export function Header() {
   return (
@@ -21,12 +21,12 @@ export function Header() {
           <a href="#chambers" className="hover:text-gold">Chambers</a>
           <a href="#covenant" className="hover:text-gold">Our Covenant</a>
         </nav>
-        <a
-          href="#enter"
+        <Link
+          to="/confession"
           className="inline-flex min-h-11 items-center justify-center rounded-md border border-gold/50 bg-gradient-to-b from-[oklch(0.78_0.135_86/0.18)] to-[oklch(0.48_0.08_60/0.10)] px-4 text-sm font-medium text-gold transition hover:from-[oklch(0.78_0.135_86/0.28)] hover:to-[oklch(0.48_0.08_60/0.18)]"
         >
           Enter the Sanctuary
-        </a>
+        </Link>
       </div>
     </header>
   );

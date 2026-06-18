@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import {
   BookOpenText,
   Flame,
@@ -156,13 +157,13 @@ function Sanctuary() {
             pastoral care.
           </p>
           <div id="enter" className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-            <a
-              href="#chambers"
+            <Link
+              to="/confession"
               className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-gold/60 bg-gradient-to-b from-[oklch(0.78_0.135_86/0.25)] to-[oklch(0.48_0.08_60/0.15)] px-7 text-sm font-medium tracking-wide text-ivory shadow-relic transition hover:from-[oklch(0.78_0.135_86/0.40)]"
             >
               <Flame className="h-4 w-4 text-gold candle-flicker" aria-hidden />
-              Step Into the Sanctuary
-            </a>
+              Lay it down at the Altar
+            </Link>
             <a
               href="#covenant"
               className="inline-flex min-h-12 items-center justify-center rounded-md px-5 text-sm text-muted-foreground underline-offset-4 hover:text-gold hover:underline"
@@ -282,13 +283,13 @@ function Sanctuary() {
             Whether you arrive in confession, in petition, or simply weary — there is a chair
             waiting for you here, and a shepherd ready to hear.
           </p>
-          <a
-            href="#chambers"
+          <Link
+            to="/confession"
             className="mt-10 inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-gold/60 bg-gradient-to-b from-[oklch(0.78_0.135_86/0.3)] to-[oklch(0.48_0.08_60/0.15)] px-8 text-sm font-medium tracking-wide text-ivory shadow-relic transition hover:from-[oklch(0.78_0.135_86/0.45)]"
           >
             <Flame className="h-4 w-4 text-gold candle-flicker" aria-hidden />
             Enter the Sanctuary
-          </a>
+          </Link>
         </div>
       </section>
 
