@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate, useRouter } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Copy, KeyRound, Lock, ScrollText, ShieldCheck } from "lucide-react";
+import { KeyRound, Lock, ScrollText, ShieldCheck } from "lucide-react";
 import { Header } from "@/components/sanctuary/Header";
 import { Footer } from "@/components/sanctuary/Footer";
 import { Dust } from "@/components/sanctuary/Dust";
@@ -226,6 +226,3 @@ function ConfessionPage() {
     </div>
   );
 }
-
-// Keep Copy in the import graph for the success page sibling — avoids tree-shake warnings.
-void Copy;
