@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ConfessionRouteImport } from './routes/confession'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ConfessionTokenRouteImport } from './routes/confession.$token'
 
 const ConfessionRoute = ConfessionRouteImport.update({
   id: '/confession',
@@ -22,31 +23,39 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConfessionTokenRoute = ConfessionTokenRouteImport.update({
+  id: '/$token',
+  path: '/$token',
+  getParentRoute: () => ConfessionRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/confession': typeof ConfessionRoute
+  '/confession': typeof ConfessionRouteWithChildren
+  '/confession/$token': typeof ConfessionTokenRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/confession': typeof ConfessionRoute
+  '/confession': typeof ConfessionRouteWithChildren
+  '/confession/$token': typeof ConfessionTokenRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/confession': typeof ConfessionRoute
+  '/confession': typeof ConfessionRouteWithChildren
+  '/confession/$token': typeof ConfessionTokenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/confession'
+  fullPaths: '/' | '/confession' | '/confession/$token'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/confession'
-  id: '__root__' | '/' | '/confession'
+  to: '/' | '/confession' | '/confession/$token'
+  id: '__root__' | '/' | '/confession' | '/confession/$token'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ConfessionRoute: typeof ConfessionRoute
+  ConfessionRoute: typeof ConfessionRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +74,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/confession/$token': {
+      id: '/confession/$token'
+      path: '/$token'
+      fullPath: '/confession/$token'
+      preLoaderRoute: typeof ConfessionTokenRouteImport
+      parentRoute: typeof ConfessionRoute
+    }
   }
 }
 
+interface ConfessionRouteChildren {
+  ConfessionTokenRoute: typeof ConfessionTokenRoute
+}
+
+const ConfessionRouteChildren: ConfessionRouteChildren = {
+  ConfessionTokenRoute: ConfessionTokenRoute,
+}
+
+const ConfessionRouteWithChildren = ConfessionRoute._addFileChildren(
+  ConfessionRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ConfessionRoute: ConfessionRoute,
+  ConfessionRoute: ConfessionRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
