@@ -4,7 +4,6 @@ import { KeyRound, Lock, ScrollText, ShieldCheck } from "lucide-react";
 import { Header } from "@/components/sanctuary/Header";
 import { Footer } from "@/components/sanctuary/Footer";
 import { Dust } from "@/components/sanctuary/Dust";
-import { CrisisBar } from "@/components/sanctuary/CrisisBar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -222,7 +221,6 @@ function ConfessionPage() {
         </section>
       </main>
       <Footer />
-      <CrisisBar />
     </div>
   );
 }

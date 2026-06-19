@@ -11,7 +11,6 @@ import {
 import { Header } from "@/components/sanctuary/Header";
 import { Footer } from "@/components/sanctuary/Footer";
 import { Dust } from "@/components/sanctuary/Dust";
-import { CrisisBar } from "@/components/sanctuary/CrisisBar";
 import { Button } from "@/components/ui/button";
 import {
   CONFESSION_CATEGORIES,
@@ -210,7 +209,6 @@ function ConfessionTokenPage() {
         )}
       </main>
       <Footer />
-      <CrisisBar />
     </div>
   );
 }

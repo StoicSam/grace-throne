@@ -16,7 +16,6 @@ import heroImage from "@/assets/sanctuary-hero.jpg";
 import { Header } from "@/components/sanctuary/Header";
 import { Footer } from "@/components/sanctuary/Footer";
 import { Dust } from "@/components/sanctuary/Dust";
-import { CrisisBar } from "@/components/sanctuary/CrisisBar";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -294,7 +293,6 @@ function Sanctuary() {
       </section>
 
       <Footer />
-      <CrisisBar />
     </main>
   );
 }
